@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Welcome to Inventory Management App</h2>
+<p>Use the navigation bar to manage Products, Locations, Movements and Reports.</p>
+<a href='{{ url_for("init_db") }}' class='btn'>Initialize Database</a>
+{% endblock %}

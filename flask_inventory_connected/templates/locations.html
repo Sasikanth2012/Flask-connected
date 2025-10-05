@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Locations</h2>
+<a href='{{ url_for("add_location") }}' class='btn'>+ Add Location</a>
+<table>
+  <tr><th>ID</th><th>Name</th><th>Action</th></tr>
+  {% for l in locations %}
+  <tr>
+    <td>{{ l.location_id }}</td>
+    <td>{{ l.name }}</td>
+    <td><a href='{{ url_for("delete_location", id=l.location_id) }}'>Delete</a></td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Inventory Management</title>
+  <link rel='stylesheet' href='{{ url_for("static", filename="style.css") }}'>
+</head>
+<body>
+<header>
+  <h1>Inventory System</h1>
+  <nav>
+    <a href='{{ url_for("index") }}'>Home</a>
+    <a href='{{ url_for("products") }}'>Products</a>
+    <a href='{{ url_for("locations") }}'>Locations</a>
+    <a href='{{ url_for("movements") }}'>Movements</a>
+    <a href='{{ url_for("report") }}'>Report</a>
+  </nav>
+</header>
+<main>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for cat,msg in messages %}
+      <p class='alert {{cat}}'>{{msg}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  {% block content %}{% endblock %}
+</main>
+<footer><p>© 2025 Inventory App</p></footer>
+</body>
+</html>
